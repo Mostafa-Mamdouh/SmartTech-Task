@@ -1,0 +1,44 @@
+
+<div fxLayout fxLayoutAlign="center center">
+
+        <div>
+            <a [routerLink]="['/products']" mat-button color="primary"> Product List</a>
+          </div>
+      </div>
+
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    
+        <mat-card fxFlex="500px" fxFlex.xs="100%">
+            <mat-card-title> Product Details </mat-card-title>
+            <mat-card-content>
+              <div fxLayout="column wrap" fxLayoutGap="40px">
+
+              <div fxLayout="row wrap" fxFlex>
+                 <div fxFlex><strong>Product ID:</strong></div>
+                 <div fxFlex>{{product?.id }}</div>
+               </div>
+
+                <div fxLayout="row wrap" fxFlex>
+                  <div fxFlex><strong>Product name:</strong></div>
+                  <div fxFlex>{{product?.name}}</div>
+                </div>
+
+                <div fxLayout="row wrap" fxFlex>
+                  <div fxFlex><strong>Price:</strong></div>
+                  <div fxFlex>{{product?.price | currency}}</div>
+                </div>
+          
+                <div fxLayout="row wrap" fxFlex>
+                  <div fxFlex><strong>Photo:</strong></div>
+                  <div fxFlex>
+                        <img  *ngIf="product.photo!=null&&product.photo!='';else Other " src="http://localhost:5000/Resources/Images/{{product.photo }}" height="100" width="100" alt="Image">
+                        <ng-template #Other>
+                           <img  src="http://localhost:5000/Resources/Images/Empty.png" height="100" width="100" alt="Image">
+                         </ng-template>
+                  </div>
+                </div>
+
+              </div>
+            </mat-card-content>
+          </mat-card>
+    </section>

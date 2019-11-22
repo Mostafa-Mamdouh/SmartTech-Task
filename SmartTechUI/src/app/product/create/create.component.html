@@ -1,0 +1,35 @@
+
+
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <mat-card-title>Create a new product</mat-card-title>
+
+      <form [formGroup]="productForm" autocomplete="off" novalidate (ngSubmit)="createProduct(productForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+  <mat-card-content>
+              <mat-form-field>
+                    <input matInput type="text" placeholder="Product's name" formControlName="name" id="name">
+                    <mat-hint align="end">Not more then 20 characters long.</mat-hint>
+                    <mat-error *ngIf="hasError('name', 'required')">Product name is required</mat-error>
+                    <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 60 characters</mat-error>
+              </mat-form-field>
+            
+              <mat-form-field>
+                    <input matInput type="number" placeholder="Product's price" formControlName="price" id="price">
+                    <mat-error *ngIf="hasError('name', 'required')">Product price is required</mat-error>
+              </mat-form-field>
+              <br>
+            
+              <ng2-file-input (change)="onAction($event)"></ng2-file-input> 
+            
+            
+  </mat-card-content>
+  <mat-card-actions align="center">
+        <button mat-raised-button color="primary" [disabled]="!productForm.valid">Create</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+</form>
+
+    </mat-card>
+</section>
+        

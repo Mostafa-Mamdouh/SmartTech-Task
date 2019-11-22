@@ -1,0 +1,13 @@
+
+mat-form-field{
+    width: 400px;
+}
+mat-card-title{
+    text-align: center;
+}
+.ng2-file-input .ng2-file-input-drop-container {
+    min-width: 200px;
+    min-height: 50px;
+    border: none;
+    padding: 7px;
+}
